@@ -27,7 +27,6 @@ print(df1.head(10))
 print(df1.isnull().sum())
 
 # Dates should be converted from str to int 
-from pathlib import Path
 
 # Create processed folder if it doesn't exist
 processed_folder = Path("data/processed")
