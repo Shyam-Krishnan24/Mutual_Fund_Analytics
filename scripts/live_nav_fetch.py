@@ -1,114 +1,53 @@
+import os
 import requests
 import pandas as pd
 
-# ==========================================================
-# Download NAV history for a single mutual fund scheme
-# ==========================================================
+# Create data/raw folder if it doesn't exist
+os.makedirs("data/raw", exist_ok=True)
 
-scheme_code = 125497
-url = f"https://api.mfapi.in/mf/{scheme_code}"
+# Scheme names and their AMFI codes
+schemes = {
+    "hdfc_top100": "125497",
+    "sbi_bluechip": "119551",
+    "icici_bluechip": "120503",
+    "nippon_large_cap": "118632",
+    "axis_bluechip": "119092",
+    "kotak_bluechip": "120841"
+}
 
-response = requests.get(url)
+print("=" * 60)
+print("Downloading Live NAV Data from mfapi.in")
+print("=" * 60)
 
-if response.status_code == 200:
-    data = response.json()
-
-    print(data)
-
-    nav = pd.DataFrame(data["data"])
-
-    nav.to_csv(
-        "data/raw/hdfc_top100_live_nav.csv",
-        index=False
-    )
-
-    print("Single scheme NAV downloaded successfully.\n")
-
-else:
-    print("Failed to download data.")
-
-# ==========================================================
-# Download NAV history for multiple mutual fund schemes
-# ==========================================================
-
-codes = [
-    119551,
-    120503,
-    118632,
-    119092,
-    120841
-]
-
-print("Downloading NAV history for multiple schemes...\n")
-
-for code in codes:
-
+for name, code in schemes.items():
     url = f"https://api.mfapi.in/mf/{code}"
 
-    response = requests.get(url)
-
-    if response.status_code == 200:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
 
         data = response.json()
 
-        nav = pd.DataFrame(data["data"])
+        # Print scheme information
+        print(f"\nScheme : {data['meta']['scheme_name']}")
+        print(f"Fund House : {data['meta']['fund_house']}")
+        print(f"AMFI Code : {code}")
 
-        nav.to_csv(
-            f"data/raw/{code}.csv",
-            index=False
-        )
+        # Convert NAV history to DataFrame
+        nav_df = pd.DataFrame(data["data"])
 
-        print(f"{code} downloaded successfully.")
+        # Save CSV
+        filename = f"data/raw/{name}.csv"
+        nav_df.to_csv(filename, index=False)
 
-    else:
-        print(f"{code} download failed.")
+        print(f"Saved : {filename}")
+        print(f"Total Records : {len(nav_df)}")
 
-# ==========================================================
-# Explore Fund Master Dataset
-# ==========================================================
+    except Exception as e:
+        print(f"Failed to download {name}")
+        print(e)
 
-print("\n" + "=" * 60)
-print("FUND MASTER DATASET")
+print("\n")
 print("=" * 60)
-
-fund = pd.read_csv("data/raw/01_fund_master.csv")
-
-print("\nDataset Shape")
-print(fund.shape)
-
-print("\nColumns")
-print(fund.columns.tolist())
-
-print("\nFund Houses")
-print(fund["fund_house"].unique())
-
-print("\nCategories")
-print(fund["category"].unique())
-
-print("\nSub Categories")
-print(fund["sub_category"].unique())
-
-print("\nRisk Categories")
-print(fund["risk_category"].unique())
-
-# ==========================================================
-# Display basic information about downloaded NAV data
-# ==========================================================
-
-print("\n" + "=" * 60)
-print("DOWNLOADED NAV DATA")
+print("All downloads completed.")
 print("=" * 60)
-
-print(nav.head())
-
-print("\nColumns")
-print(nav.columns.tolist())
-
-print("\nDate Range")
-print("Earliest Date :", nav["date"].min())
-print("Latest Date   :", nav["date"].max())
-
-print("\nTotal NAV Records")
-print(len(nav))
-
-print("\nScript completed successfully.")
