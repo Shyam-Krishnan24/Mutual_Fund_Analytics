@@ -1,3 +1,13 @@
+"""
+live_nav_fetch.py
+
+Purpose:
+Fetches live NAV data from MFAPI and stores the results
+in the raw data directory.
+
+Author: R SHYAAM KRISHNAN
+"""
+
 import os
 import requests
 import pandas as pd

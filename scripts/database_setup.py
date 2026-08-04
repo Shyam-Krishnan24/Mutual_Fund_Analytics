@@ -1,3 +1,14 @@
+"""
+database_setup.py
+
+Purpose:
+Creates the SQLite database and required tables
+for Mutual Fund Analytics.
+
+Author: R SHYAAM KRISHNAN
+"""
+
+
 from pathlib import Path
 import sqlite3
 

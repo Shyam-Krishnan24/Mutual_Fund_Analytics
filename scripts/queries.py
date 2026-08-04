@@ -1,3 +1,13 @@
+"""
+queries.py
+
+Purpose:
+Executes analytical SQL queries for the project.
+
+Author: R SHYAAM KRISHNAN
+"""
+
+
 from pathlib import Path
 import sqlite3
 import pandas as pd
