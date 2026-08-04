@@ -1,3 +1,14 @@
+"""
+data_cleaning.py
+
+Purpose:
+Cleans all datasets by handling missing values,
+duplicates, date conversion and data validation.
+
+Author: R SHYAAM KRISHNAN
+"""
+
+
 from pathlib import Path
 import pandas as pd
 

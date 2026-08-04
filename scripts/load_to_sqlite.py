@@ -1,3 +1,13 @@
+"""
+load_to_sqlite.py
+
+Purpose:
+Loads cleaned datasets into the SQLite database.
+
+Author: R SHYAAM KRISHNAN
+"""
+
+
 from pathlib import Path
 import sqlite3
 import pandas as pd

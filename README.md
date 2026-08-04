@@ -1,94 +1,35 @@
 # 📊 Mutual Fund Analytics
 
-A comprehensive data analytics project developed as part of the **Bluestock Fintech Mutual Fund Analytics Internship**. This project focuses on collecting, cleaning, analyzing, and visualizing Indian mutual fund data to generate meaningful business insights through SQL, Python, and Power BI.
+> **Bluestock Fintech Capstone Project**
+>
+> A complete end-to-end Data Analytics project that analyzes Indian Mutual Fund datasets using **Python, SQL, SQLite, Jupyter Notebook, and Power BI** to generate actionable business insights through data cleaning, exploratory analysis, financial performance evaluation, and interactive dashboards.
+
+---
+
+# 👨‍💻 Author
+
+**R SHYAAM KRISHNAN**
 
 ---
 
 # 📌 Project Overview
 
-The objective of this project is to analyze mutual fund datasets and build an interactive analytics dashboard that helps understand fund performance, investor behavior, market trends, and portfolio allocation.
+The Indian Mutual Fund industry produces vast amounts of financial and transactional data. This project transforms raw datasets into meaningful insights by implementing a complete analytics pipeline—from data ingestion and cleaning to database integration, SQL analysis, exploratory data analysis (EDA), performance evaluation, and Power BI dashboard development.
 
-The project follows a complete Data Analytics workflow:
-
-- Data Collection
-- Data Cleaning
-- Exploratory Data Analysis (EDA)
-- SQLite Database Integration
-- SQL Analytics
-- Performance Analysis
-- Power BI Dashboard Development
+The final solution provides an interactive dashboard that enables users to analyze mutual fund performance, investor behavior, market trends, and portfolio composition.
 
 ---
 
 # 🎯 Project Objectives
 
-- Clean and preprocess mutual fund datasets.
-- Validate data quality and consistency.
-- Perform exploratory data analysis.
-- Analyze fund performance using financial metrics.
-- Store processed data in SQLite.
+- Load and preprocess multiple mutual fund datasets.
+- Perform data cleaning and validation.
+- Analyze NAV trends, AUM growth, SIP inflows, and investor behavior.
+- Store processed datasets in SQLite.
 - Execute SQL-based analytical queries.
+- Evaluate fund performance using financial metrics.
 - Build an interactive Power BI dashboard.
-- Generate actionable business insights.
-
----
-
-# 📁 Project Structure
-
-```
-MutualFundAnalytics/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── database/
-│   └── mutual_fund.db
-│
-├── scripts/
-│   ├── data_ingestion.py
-│   ├── live_nav_fetch.py
-│   ├── data_cleaning.py
-│   ├── database_setup.py
-│   ├── load_to_sqlite.py
-│   └── queries.py
-│
-├── notebooks/
-│   ├── Day1_EDA.ipynb
-│   ├── EDA_Analysis.ipynb
-│   └── Performance_Analytics.ipynb
-│
-├── sql/
-│   ├── schema.sql
-│   └── queries.sql
-│
-├── dashboard/
-│
-├── reports/
-│   ├── EDA_Findings.md
-│   └── fund_scorecard.csv
-│
-├── README.md
-├── data_dictionary.md
-└── requirements.txt
-```
-
----
-
-# 📂 Datasets Used
-
-The project uses ten datasets covering different aspects of the Indian Mutual Fund industry.
-
-1. Fund Master
-2. NAV History
-3. AUM by Fund House
-4. Monthly SIP Inflows
-5. Category Inflows
-6. Industry Folio Count
-7. Scheme Performance
-8. Investor Transactions
-9. Portfolio Holdings
-10. Benchmark Indices
+- Generate business insights for investment analysis.
 
 ---
 
@@ -105,7 +46,6 @@ The project uses ten datasets covering different aspects of the Indian Mutual Fu
 - Matplotlib
 - Seaborn
 - Plotly
-- SQLite3
 - SQLAlchemy
 - Requests
 
@@ -119,85 +59,197 @@ The project uses ten datasets covering different aspects of the Indian Mutual Fu
 
 ### Development Tools
 
-- Visual Studio Code
 - Jupyter Notebook
+- Visual Studio Code
 - Git
 - GitHub
 
 ---
 
-# ⚙️ Project Workflow
+# 📂 Project Structure
+
+```text
+MutualFundAnalytics/
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── README.md
+│
+├── scripts/
+│   ├── data_ingestion.py
+│   ├── live_nav_fetch.py
+│   ├── data_cleaning.py
+│   ├── database_setup.py
+│   ├── load_to_sqlite.py
+│   ├── queries.py
+|   ├── recommender.py
+│   └── README.md
+│
+├── notebooks/
+│   ├── Day1_EDA.ipynb
+│   ├── EDA_Analysis.ipynb
+│   ├── Performance_Analytics.ipynb
+│   └── README.md
+│
+├── database/
+│   ├── mutual_fund.db
+│   └── README.md
+│
+├── sql/
+│   ├── schema.sql
+│   ├── queries.sql
+│   └── README.md
+│
+├── dashboard/
+│   ├── MutualFundAnalytics.pbix
+│   ├── Dashboard_Screenshots/
+│   └── README.md
+│
+├── reports/
+│   ├── EDA_Findings.md
+│   ├── Fund_Report.pdf
+│   ├── fund_scorecard.csv
+│   └── README.md
+│
+├── run_pipeline.py
+├── data_dictionary.md
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+# 📁 Datasets Used
+
+The project analyzes ten datasets related to the Indian Mutual Fund industry.
+
+| Dataset | Description |
+|----------|-------------|
+| Fund Master | Mutual fund scheme information |
+| NAV History | Historical Net Asset Values |
+| AUM by Fund House | Assets Under Management |
+| Monthly SIP Inflows | SIP investment trends |
+| Category Inflows | Category-wise inflows |
+| Industry Folio Count | Investor participation |
+| Scheme Performance | Returns and financial metrics |
+| Investor Transactions | Investment transactions |
+| Portfolio Holdings | Portfolio composition |
+| Benchmark Indices | Market benchmark performance |
+
+Additionally, live NAV data was collected using the **MFAPI**.
+
+---
+
+# 🔄 Project Workflow
+
+```text
+Raw Datasets
+      │
+      ▼
+Data Ingestion
+      │
+      ▼
+Data Cleaning & Validation
+      │
+      ▼
+Processed Datasets
+      │
+      ▼
+SQLite Database
+      │
+      ▼
+SQL Analysis
+      │
+      ▼
+Exploratory Data Analysis
+      │
+      ▼
+Performance Analytics
+      │
+      ▼
+Power BI Dashboard
+      │
+      ▼
+Business Insights
+```
+
+---
+
+# ✅ Project Implementation
 
 ## Day 1 – Data Ingestion
 
-- Created project structure.
-- Loaded all datasets using Pandas.
-- Explored datasets.
-- Fetched live NAV data using MFAPI.
-- Validated AMFI codes.
-- Generated initial EDA notebook.
+- Created project folder structure
+- Loaded all datasets using Pandas
+- Performed initial dataset inspection
+- Retrieved live NAV data from MFAPI
+- Validated AMFI scheme codes
+- Generated requirements.txt
 
 ---
 
 ## Day 2 – Data Cleaning
 
-- Cleaned all datasets.
-- Removed duplicate records.
-- Converted date columns.
-- Handled missing values.
-- Standardized text columns.
-- Created processed datasets.
-- Built SQLite database.
-- Loaded cleaned data into SQLite.
+Completed preprocessing for all datasets:
+
+- Removed duplicate records
+- Converted date columns
+- Standardized categorical values
+- Handled missing values
+- Validated financial data
+- Generated cleaned datasets
+- Created SQLite database
+- Loaded processed datasets into SQLite
 
 ---
 
 ## Day 3 – Exploratory Data Analysis
 
-Performed exploratory analysis including:
+Performed comprehensive EDA including:
 
 - NAV Trend Analysis
 - AUM Growth Analysis
-- SIP Inflow Analysis
+- Monthly SIP Analysis
 - Category-wise Inflow Analysis
 - Investor Demographics
-- State-wise Investment Analysis
-- Industry Folio Analysis
-- Benchmark Analysis
+- Industry Folio Growth
+- Benchmark Performance
+- Portfolio Holdings Analysis
 - Correlation Analysis
 
 Generated:
 
 - EDA notebook
 - Business observations
-- EDA findings report
+- Analytical visualizations
 
 ---
 
-## Day 4 – Fund Performance Analytics
+## Day 4 – Performance Analytics
 
-Analyzed fund performance using:
+Evaluated mutual fund performance using:
 
-- 1-Year Returns
-- 3-Year Returns
-- 5-Year Returns
+- 1-Year Return
+- 3-Year Return
+- 5-Year Return
 - Sharpe Ratio
 - Sortino Ratio
 - Alpha
 - Beta
 - Maximum Drawdown
 - Expense Ratio
+- Morningstar Rating
 - Fund Scorecard
-
-Generated performance reports and ranking analysis.
 
 ---
 
 ## Day 5 – Dashboard Development
 
-Power BI dashboard includes:
+Developed an interactive Power BI dashboard consisting of four analytical pages.
 
-### Executive Dashboard
+### Executive Overview
 
 - Total Mutual Funds
 - Total Fund Houses
@@ -205,14 +257,13 @@ Power BI dashboard includes:
 - Total Investors
 - NAV Trend
 - Category Distribution
-- Risk Analysis
 
 ### Fund Performance
 
 - Top Performing Funds
-- Sharpe Ratio Analysis
+- Sharpe Ratio Ranking
 - Alpha vs Beta
-- Fund Rankings
+- Fund Scorecard
 - Expense Ratio Analysis
 
 ### Investor Analytics
@@ -221,51 +272,87 @@ Power BI dashboard includes:
 - Gender Distribution
 - Age Group Analysis
 - City Tier Analysis
-- Transaction Analysis
+- Transaction Type Analysis
 
-### Market Analysis
+### Market Analytics
 
 - SIP Trend
+- Category Inflows
 - Industry Folio Growth
+- Portfolio Allocation
 - Benchmark Performance
-- Portfolio Sector Allocation
+
+---
+
+# 💾 Database
+
+SQLite was used to store cleaned datasets and execute SQL analytics.
+
+The database includes:
+
+- Fund Master
+- NAV History
+- AUM
+- SIP Inflows
+- Category Inflows
+- Industry Folios
+- Scheme Performance
+- Investor Transactions
+- Portfolio Holdings
+- Benchmark Indices
 
 ---
 
 # 📈 SQL Analytics
 
-Implemented SQL queries to analyze:
+Implemented analytical SQL queries for:
 
 - Latest NAV
 - Highest NAV Funds
 - State-wise Investments
 - Transaction Distribution
 - Sector Allocation
-- Gender Distribution
+- Gender Analysis
 - City Tier Analysis
 - Average Investment
 - Portfolio Holdings
-- Risk Categories
+- Risk Category Analysis
 
 ---
 
-# 📊 Key Insights
+# 📊 Dashboard Features
 
-- Mutual fund investments show consistent long-term growth.
-- SIP inflows have increased significantly over time.
-- Large-cap and equity-oriented funds attract the highest investments.
-- Tier-1 cities contribute the majority of investors.
-- Leading fund houses dominate Assets Under Management.
-- Portfolio holdings are diversified across multiple sectors.
-- Benchmark indices demonstrate sustained market growth.
-- Risk-adjusted metrics help identify high-performing schemes.
+The Power BI dashboard enables users to:
+
+- Analyze mutual fund performance
+- Compare fund houses
+- Track NAV trends
+- Evaluate investor demographics
+- Monitor SIP growth
+- Explore benchmark movements
+- Study portfolio allocation
+- Rank funds using performance metrics
 
 ---
 
-# 📁 Reports Generated
+# 📌 Key Insights
+
+- Mutual fund investments demonstrated consistent long-term growth.
+- SIP inflows increased steadily over the analysis period.
+- Equity-oriented funds attracted the highest investor participation.
+- Large fund houses managed the highest Assets Under Management (AUM).
+- Tier-1 cities contributed the majority of investments.
+- Risk-adjusted metrics effectively differentiated high-performing schemes.
+- Portfolio holdings showed diversified sector allocation.
+- Benchmark indices reflected sustained market growth.
+
+---
+
+# 📄 Reports Generated
 
 - Data Dictionary
-- EDA Findings
+- Exploratory Data Analysis Report
+- Fund Performance Report
 - Fund Scorecard
 - SQL Analytics
 - Dashboard Visualizations
@@ -274,85 +361,69 @@ Implemented SQL queries to analyze:
 
 # 🚀 Future Enhancements
 
-- Live data integration using APIs
-- Predictive NAV forecasting
+- Live API integration for real-time NAV updates
+- Machine Learning-based return prediction
 - Portfolio recommendation system
-- Investor segmentation using Machine Learning
-- Real-time dashboard updates
+- Investor segmentation
+- Automated dashboard refresh
 - Cloud deployment
 
 ---
 
 # ▶️ How to Run
 
-Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/MutualFundAnalytics.git
 ```
 
-Move into the project
+### Navigate to Project
 
 ```bash
 cd MutualFundAnalytics
 ```
 
-Install dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run data ingestion
+### Execute Complete Pipeline
 
 ```bash
-python scripts/data_ingestion.py
+python run_pipeline.py
 ```
 
-Run cleaning
+The pipeline executes:
 
-```bash
-python scripts/data_cleaning.py
-```
-
-Create SQLite database
-
-```bash
-python scripts/database_setup.py
-```
-
-Load data
-
-```bash
-python scripts/load_to_sqlite.py
-```
-
-Run SQL analytics
-
-```bash
-python scripts/queries.py
-```
-
-Open Power BI dashboard
-
-```
-dashboard/MutualFundAnalytics.pbix
-```
+1. Data Ingestion
+2. Live NAV Fetch
+3. Data Cleaning
+4. Database Creation
+5. SQLite Loading
+6. SQL Analytics
 
 ---
 
 # 📸 Dashboard Preview
 
-> Dashboard screenshots will be added after completing the Power BI dashboard.
+Dashboard screenshots are available in:
+
+```text
+dashboard/
+└── Dashboard_Screenshots/
+```
 
 ---
 
-# 👨‍💻 Author
+# 📜 License
 
-Developed as part of the **Bluestock Fintech Mutual Fund Analytics Internship** using Python, SQL, SQLite, Power BI, and data analytics best practices.
+This project was developed for educational purposes as part of the **Bluestock Fintech Mutual Fund Analytics Capstone Project**.
 
 ---
 
-# ⭐ Acknowledgements
+# 🙏 Acknowledgements
 
-Special thanks to **Bluestock Fintech** for providing the Mutual Fund Analytics Capstone Project and datasets for practical learning in data analytics.
+Special thanks to **Bluestock Fintech** for providing the Mutual Fund Analytics Capstone Project and datasets, enabling hands-on learning in data analytics, financial analysis, SQL, and Power BI.

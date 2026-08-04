@@ -1,3 +1,11 @@
+"""Mutual fund recommendation system.
+
+This script loads the processed mutual fund performance dataset, prompts the user
+to select a risk appetite, filters funds matching the selected risk grade, and
+displays the top three recommendations ranked by Sharpe ratio.
+"""
+
+
 from pathlib import Path
 import pandas as pd
 # ==========================================================

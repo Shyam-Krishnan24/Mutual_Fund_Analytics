@@ -1,3 +1,14 @@
+"""
+data_ingestion.py
+
+Purpose:
+Loads all raw mutual fund datasets, performs an initial inspection,
+and validates dataset structure.
+
+Author: R SHYAAM KRISHNAN
+Project: Mutual Fund Analytics
+"""
+
 import pandas as pd
 
 # ============================================================
